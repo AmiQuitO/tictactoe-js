@@ -1,0 +1,87 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #cdcdcd;
+}
+body{
+    background-color: #282828;
+}
+nav{
+    margin: auto;
+    height: 80px;
+    width: 600px;
+    background-color: #222222;
+    padding: 5px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 50px;
+    text-align: center;
+}
+article{
+    position: relative;
+    margin: auto;
+    height: 600px;
+    width: 600px;
+    background-color: #222222;
+    overflow: hidden;
+}
+#menu{
+    position: absolute;
+    display: block;
+    z-index: 1000;
+    height: 600px;
+    width: 600px;
+    background-color: #222222;
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+    transition-duration: 1s;
+    top: 0;
+}
+#menuInfo{
+    height: 80px;
+    width: 560px;
+    display: block;
+}
+.button{
+    height: 100px;
+    width: 160px;
+    background-color: #222222;
+    border: 2px solid #cdcdcd;
+    padding: 5px;
+    transition: 0.5s;
+    float: left;
+    margin: 150px 60px 80px 60px;
+}
+.button:hover{
+    background-color: #cdcdcd;
+    color: #222222;
+}
+#restartBTN, #menuBTN{
+    display: none;
+}
+#playBoard{
+    padding: 15px;
+}
+.square{
+    z-index: 10;
+    height: 160px;
+    width: 160px;
+    background-color: #282828;
+    margin: 15px;
+    font-size: 100px;
+    text-align: center;
+    line-height: 160px;
+}
+.square:hover{
+    background-color: #343434;
+}
+#sq0, #sq1, #sq2{
+    float: left;
+}
+#sq3, #sq4, #sq5{
+    float: left;
+}
+#sq6, #sq7, #sq8{
+    float: left;
+}

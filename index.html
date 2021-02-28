@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+        <meta name="author" content="">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="style/resetstyle.css" />
+		<link rel="stylesheet" type="text/css" href="style/style.css" />
+        <script src="script/functions.js"></script>
+        <script src="script/tictactoe.js"></script>
+		<link rel="icon" type="image/png" href=""/>
+		<title></title>
+	</head>
+	<body>
+		<nav>
+			TicTacToe <p style="font-size: 15px;">by Konrad Hoffmann Silva // AmiQuitO</p>
+		</nav>
+		<article>
+			<div id="menu">
+				<span id="menuInfo">Choose gamemode:</span>
+				<div class="button" id="aiBTN" onclick="alert('Work in progress,\n AI gamemode still not avaliable')">
+					AI
+				</div>
+				<div class="button" id="menuBTN" onclick="returnMenu()">
+					Main menu
+				</div>
+				<div class="button" id="restartBTN" onclick="restartGame()" style="padding: 5px;">
+					Play again
+				</div>
+				<div class="button" id="twoPlayersBTN" onclick="closeMenu();twoPlayerGM()">
+					2 Players
+				</div>
+			</div>
+			<div id="playBoard">
+				<div class="square" id="sq0" onclick="clickedSQ(0, this)"></div>
+				<div class="square" id="sq1" onclick="clickedSQ(1, this)"></div>
+				<div class="square" id="sq2" onclick="clickedSQ(2, this)"></div>
+				<div class="square" id="sq3" onclick="clickedSQ(3, this)"></div>
+				<div class="square" id="sq4" onclick="clickedSQ(4, this)"></div>
+				<div class="square" id="sq5" onclick="clickedSQ(5, this)"></div>
+				<div class="square" id="sq6" onclick="clickedSQ(6, this)"></div>
+				<div class="square" id="sq7" onclick="clickedSQ(7, this)"></div>
+				<div class="square" id="sq8" onclick="clickedSQ(8, this)"></div>
+			</div>
+		</article>
+	</body>
+</html>
