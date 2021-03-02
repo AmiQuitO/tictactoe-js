@@ -7,7 +7,8 @@ let movesDone = 0;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-}
+} //skopiowane z neta UwU
+
 function closeMenu(){
     document.getElementById("menu").style.top = "600px";
 }
@@ -45,10 +46,10 @@ function playerWin(playerWin, winsXs, winsOs){
     setGameMenu();
     document.getElementById("menuInfo").innerHTML = `${playerWin}<br>X ${winsXs}:${winsOs} O`;
     openMenu();
+    isAIx = undefined;
 }
 function restartGame(){
     closeMenu();
-    isXsTurn = true;
     isSQTaken =  [false, false, false, false, false, false, false, false, false];
     movesDone = 0;
     let isSQTakenLenght = isSQTaken.length;

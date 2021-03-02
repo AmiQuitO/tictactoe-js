@@ -1,27 +1,8 @@
-function checkLine(a,b,c,player){
-    if (isSQTaken[a] == player && isSQTaken[b] == player  && isSQTaken[c] == player ){
-        document.getElementById(`sq${a}`).style.color = "yellow";
-        document.getElementById(`sq${b}`).style.color = "yellow";
-        document.getElementById(`sq${c}`).style.color = "yellow";
 
-        if(!gameRunning){
-            return;
-        }
-        if(player == "X"){
-            winsXs++;
-        }
-        else if(player == "O"){
-            winsOs++;
-        }
-        playerWin(player+` won!`, winsXs, winsOs);
-        console.log(`${player}'s wins!`);
-        gameRunning = false;
-        // no dobra maticz mi z tym pomogl i co z tego
-    }
-}
+
 function clickedSQ(SQnumber, SQid){
 
-    if(gameRunning == true){
+    if(gameRunning == true && !(isAIx == isXsTurn)){
 
         if(isSQTaken[SQnumber] == false){
             if (isXsTurn == true){
@@ -30,22 +11,21 @@ function clickedSQ(SQnumber, SQid){
                 isSQTaken[SQnumber] = "X";
                 movesDone++;
                 checkDraw(movesDone);
-                posibleWin(SQid);
-            }
+                posibleWin(); //jebus
+            }//rabuś zabijaka
             else{
                 SQid.innerHTML = "O";
                 isXsTurn = true;
                 isSQTaken[SQnumber] = "O";
                 movesDone++;
                 checkDraw(movesDone);
-                posibleWin(SQid);
+                posibleWin();
             }
         }
-        else{}
+        //else{} wtf
     }
-    else{}
 }
-function posibleWin(SQid){
+function posibleWin(){
     //012
     //345
     //678
@@ -75,10 +55,38 @@ function posibleWin(SQid){
     //diagonal
     checkLine(0,4,8,"O");
     checkLine(6,4,2,"O");
+
+
+    if(gameRunning){
+        if (useAI && isXsTurn == isAIx) {
+            aiMove();            
+        }
+    }
 }
+function checkLine(a,b,c,player){
+    if (isSQTaken[a] == player && isSQTaken[b] == player  && isSQTaken[c] == player ){
+        document.getElementById(`sq${a}`).style.color = "yellow";
+        document.getElementById(`sq${b}`).style.color = "yellow";
+        document.getElementById(`sq${c}`).style.color = "yellow";
+        if(player == "X"){
+            winsXs++;
+        }
+        else if(player == "O"){
+            winsOs++;
+        }
+        playerWin(player+` won!`, winsXs, winsOs);
+        console.log(`${player}'s wins!`);
+        gameRunning = false;
+    }
+}
+
+function lineTaken(a,b,c,player,board){
+    return board[a] == player && board[b] == player  && board[c] == player;
+}
+
 function checkDraw(movesDone){
-    console.log(movesDone);
     if(movesDone == 9){
         playerWin("Draw", winsXs, winsOs);
     }
 }
+// no dobra maticz mi to całe napisał uwu
