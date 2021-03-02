@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="style/style.css" />
         <script src="script/functions.js"></script>
         <script src="script/tictactoe.js"></script>
+        <script src="script/ai.js"></script>
 		<link rel="icon" type="image/png" href=""/>
 		<title></title>
 	</head>
@@ -22,13 +23,13 @@
 		<article>
 			<div id="menu">
 				<span id="menuInfo">Choose gamemode:</span>
-				<div class="button" id="aiBTN" onclick="alert('Work in progress,\n AI gamemode still not avaliable')">
+				<div class="button" id="aiBTN" onclick="alert('Work good,\n AI gamemode steel avaliable'); closeMenu(); startAI();">
 					AI
 				</div>
 				<div class="button" id="menuBTN" onclick="returnMenu()">
 					Main menu
 				</div>
-				<div class="button" id="restartBTN" onclick="restartGame()" style="padding: 5px;">
+				<div class="button" id="restartBTN" onclick="if(useAI){startAI();}else{restartGame();}" style="padding: 5px;">
 					Play again
 				</div>
 				<div class="button" id="twoPlayersBTN" onclick="closeMenu();twoPlayerGM()">
