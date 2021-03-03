@@ -1,5 +1,7 @@
 let isAIx = undefined;
 let useAI = false;
+let lookup = true;
+
 
 function startAI()
 {
@@ -19,7 +21,10 @@ function startAI()
 }
 
 function AIchooseMove(){
-   return checkScore(isSQTaken,isXsTurn)
+    if(!lookup)
+        return checkScore(isSQTaken,isXsTurn);
+    else
+        return lookupTableMove(isSQTaken);
 }
 
 function checkScore(board,xTurn){
@@ -102,6 +107,38 @@ function checkScore(board,xTurn){
     }
             
     return random;
+}
+
+
+function lookupTableMove(board){
+    
+    let boardState = board.join("")
+    .replaceAll("false"            ,"E") //empty
+    .replaceAll(isAIx ? "X":"O"    ,"C") //computer
+    .replaceAll(isAIx ? "O":"X"    ,"P"); //player
+
+    let situation;
+    for (const element of lookupTable) {   
+        if (element.when.replace(/[\r\n\s]+/g, "").includes(boardState)){
+            situation = element;  
+            break;
+        }
+    }
+
+    console.log("Lookup:");
+    console.log(situation);
+
+    
+
+    if(situation){
+        let index = Math.round(
+            Math.random()*(situation.do.length-1)
+        )
+        return situation.do[index];
+    }
+    else
+        return checkScore(isSQTaken,isXsTurn);
+
 }
 
 function aiMove(){
