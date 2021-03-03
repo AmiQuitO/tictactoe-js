@@ -1,6 +1,27 @@
 const lookupTable = [
     {
         when:`
+        E P P 
+        A A A 
+        A A A
+        `,do: [0]
+    },
+    {
+        when:`
+        E A A 
+        P A A 
+        P A A
+        `,do: [0]
+    },
+    {
+        when:`
+        E A A 
+        A P A 
+        A A P
+        `,do: [0]
+    },
+    {
+        when:`
         E E E 
         E E E 
         E E E

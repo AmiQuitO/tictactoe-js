@@ -118,8 +118,21 @@ function lookupTableMove(board){
     .replaceAll(isAIx ? "O":"X"    ,"P"); //player
 
     let situation;
-    for (const element of lookupTable) {   
-        if (element.when.replace(/[\r\n\s]+/g, "").includes(boardState)){
+    for (const element of lookupTable) {  
+        let charCount = 0;
+        let board;
+        for (const char of element.when) {
+            if(char == "C" || char == "P" || char == "E"){
+                charCount++;
+                board += char;
+            }
+            if(char == "A"){
+                board += boardState[charCount];
+                charCount++;
+            }
+        }
+        
+        if (board.replace(/[\r\n\s]+/g, "").includes(boardState)){
             situation = element;  
             break;
         }
